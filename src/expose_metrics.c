@@ -4,25 +4,18 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <microhttpd.h>
-//#include "prometheus_client.h" // Asegúrate de incluir la cabecera correcta para prometheus
-
 /** Mutex para sincronización de hilos */
 pthread_mutex_t lock;
-
 /** Métrica de Prometheus para el uso de CPU */
 static prom_gauge_t* cpu_usage_metric;
-
 /** Métrica de Prometheus para el uso de memoria */
 static prom_gauge_t* memory_usage_metric;
 static prom_gauge_t* disk_usage_metric;
 static prom_gauge_t* active_processes_metric;
 /** Métrica de Prometheus para el tráfico de red */
 static prom_gauge_t* network_traffic_metric;
-
 /** Métrica de Prometheus para los cambios de contexto */
 static prom_gauge_t* context_switches_metric;
-
-
 void update_cpu_gauge()
 {
     double usage = get_cpu_usage();
@@ -37,7 +30,6 @@ void update_cpu_gauge()
         fprintf(stderr, "Error al obtener el uso de CPU\n");
     }
 }
-
 void update_memory_gauge()
 {
     double usage = get_memory_usage();
@@ -52,7 +44,6 @@ void update_memory_gauge()
         fprintf(stderr, "Error al obtener el uso de memoria\n");
     }
 }
-
 void update_disk_gauge()
 {
     double usage = get_disk_usage();
@@ -63,7 +54,6 @@ void update_disk_gauge()
         pthread_mutex_unlock(&lock);
     }
 }
-
 void update_active_processes_gauge()
 {
     double processes = get_active_processes();
@@ -74,8 +64,6 @@ void update_active_processes_gauge()
         pthread_mutex_unlock(&lock);
     }
 }
-
-
 void* expose_metrics(void* arg)
 {
     (void)arg; // Argumento no utilizado
@@ -158,9 +146,6 @@ int init_metrics()
     prom_collector_registry_must_register_metric(memory_usage_metric);
     prom_collector_registry_must_register_metric(disk_usage_metric);
     prom_collector_registry_must_register_metric(active_processes_metric);
-    
-    
-
 // Crear las métricas de tráfico de red y cambios de contexto
 network_traffic_metric = prom_gauge_new("network_traffic_bytes", "Tráfico de red en bytes", 0, NULL);
 context_switches_metric = prom_gauge_new("context_switches", "Número de cambios de contexto", 0, NULL);
@@ -174,64 +159,13 @@ if (!network_traffic_metric || !context_switches_metric) {
 // Registrar las métricas
 prom_collector_registry_must_register_metric(network_traffic_metric);
 prom_collector_registry_must_register_metric(context_switches_metric);
-
-
-
 printf("Métricas inicializadas correctamente\n");
-/*
-    
-    //printf("prueba");//prueba
-    // Inicializamos el mutex
-    if (pthread_mutex_init(&lock, NULL) != 0)
-    {
-        fprintf(stderr, "Error al inicializar el mutex\n");
-        return EXIT_FAILURE;
-    }
-    printf("Mutex inicializado correctamente\n");
- // Inicializamos el registro de coleccionistas de Prometheus
-    static int initialized = 0; // Variable para asegurar que se inicializa solo una vez
-    if (!initialized) {
-        if (prom_collector_registry_default_init() != 0)
-        {
-            fprintf(stderr, "Error al inicializar el registro de Prometheus\n");
-            return EXIT_FAILURE;
-        }
-        initialized = 1; // Marcar como inicializado
-    }
-    printf("inicializar el registro de Prometheus\n");
-    // Creamos la métrica para el uso de CPU
-    cpu_usage_metric = prom_gauge_new("cpu_usage_percentage", "Porcentaje de uso de CPU", 0, NULL);
-    if (cpu_usage_metric == NULL)
-    {
-        fprintf(stderr, "Error al crear la métrica de uso de CPU\n");
-        return EXIT_FAILURE;
-    }
-    printf("Métrica de uso de CPU creada correctamente\n");
-    // Creamos la métrica para el uso de memoria
-    memory_usage_metric = prom_gauge_new("memory_usage_percentage", "Porcentaje de uso de memoria", 0, NULL);
-    if (memory_usage_metric == NULL)
-    {
-        fprintf(stderr, "Error al crear la métrica de uso de memoria\n");
-        return EXIT_FAILURE;
-    }
-    printf("creado la métrica de uso de memoria\n");
 
-    // Registramos las métricas en el registro por defecto
-    
-prom_metric_t *result_cpu = prom_collector_registry_must_register_metric(cpu_usage_metric);
-prom_metric_t *result_memory = prom_collector_registry_must_register_metric(memory_usage_metric);
-
-if (result_cpu == NULL || result_memory == NULL) {
-    fprintf(stderr, "Error al registrar las métricas: cpu=%p, memoria=%p\n", result_cpu, result_memory);
-    return EXIT_FAILURE;
-}
-*/
     printf("registrado las métricas\n");
 
         return EXIT_SUCCESS; // Indica que todo se ha inicializado correctamente
 
 }
-
 void destroy_mutex()
 {printf("prueba");//prueba
     pthread_mutex_destroy(&lock);

@@ -1,19 +1,15 @@
 #include "metrics.h"
-
 double get_memory_usage()
 {
     FILE* fp;
     char buffer[BUFFER_SIZE];
     unsigned long long total_mem = 0, free_mem = 0;
-
-    // Abrir el archivo /proc/meminfo
     fp = fopen("/proc/meminfo", "r");
     if (fp == NULL)
     {
         perror("Error al abrir /proc/meminfo");
         return -1.0;
     }
-
     // Leer los valores de memoria total y disponible
     while (fgets(buffer, sizeof(buffer), fp) != NULL)
     {
@@ -26,7 +22,6 @@ double get_memory_usage()
             break; // MemAvailable encontrado, podemos dejar de leer
         }
     }
-
     fclose(fp);
 
     // Verificar si se encontraron ambos valores
@@ -35,7 +30,6 @@ double get_memory_usage()
         fprintf(stderr, "Error al leer la información de memoria desde /proc/meminfo\n");
         return -1.0;
     }
-
     // Calcular el porcentaje de uso de memoria
     double used_mem = total_mem - free_mem;
     double mem_usage_percent = (used_mem / total_mem) * 100.0;
