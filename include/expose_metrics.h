@@ -2,9 +2,10 @@
  * @file expose_metrics.h
  * @brief Programa para leer el uso de CPU y memoria y exponerlos como métricas de Prometheus.
  */
-
+#ifndef EXPOSE_METRICS_H
+#define EXPOSE_METRICS_
 #include "metrics.h"
-#include "read_cpu_usage.h"
+//#include "read_cpu_usage.h"
 #include <errno.h>
 #include <prom.h>
 #include <promhttp.h>
@@ -36,9 +37,21 @@ void* expose_metrics(void* arg);
 /**
  * @brief Inicializar mutex y métricas.
  */
-void init_metrics();
+int init_metrics();
 
 /**
  * @brief Destructor de mutex
  */
 void destroy_mutex();
+
+void update_disk_gauge(); // Añadir declaración de la métrica de disco
+
+/**
+ * @brief Actualiza la métrica de procesos activos.
+ */
+void update_active_processes_gauge(); // Añadir declaración de la métrica de procesos activos
+
+void update_network_traffic_gauge();      // Asegúrate de tener esta declaración
+void update_context_switches_gauge();      // Y esta también
+
+#endif // EXPOSE_METRICS_H
