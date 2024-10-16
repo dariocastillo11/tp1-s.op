@@ -1,15 +1,19 @@
 #include "metrics.h"
+
 double get_memory_usage()
 {
     FILE* fp;
     char buffer[BUFFER_SIZE];
     unsigned long long total_mem = 0, free_mem = 0;
+
+    // Abrir el archivo /proc/meminfo
     fp = fopen("/proc/meminfo", "r");
     if (fp == NULL)
     {
         perror("Error al abrir /proc/meminfo");
         return -1.0;
     }
+
     // Leer los valores de memoria total y disponible
     while (fgets(buffer, sizeof(buffer), fp) != NULL)
     {
@@ -22,6 +26,7 @@ double get_memory_usage()
             break; // MemAvailable encontrado, podemos dejar de leer
         }
     }
+
     fclose(fp);
 
     // Verificar si se encontraron ambos valores
@@ -30,6 +35,7 @@ double get_memory_usage()
         fprintf(stderr, "Error al leer la información de memoria desde /proc/meminfo\n");
         return -1.0;
     }
+
     // Calcular el porcentaje de uso de memoria
     double used_mem = total_mem - free_mem;
     double mem_usage_percent = (used_mem / total_mem) * 100.0;
@@ -104,104 +110,4 @@ double get_cpu_usage()
     prev_steal = steal;
 
     return cpu_usage_percent;
-}
-
-
-double get_disk_usage()
-{
-    FILE *fp;
-    char buffer[BUFFER_SIZE];
-    unsigned long long read_sectors = 0, write_sectors = 0;
-
-    fp = fopen("/proc/diskstats", "r");
-    if (fp == NULL)
-    {
-        perror("Error al abrir /proc/diskstats");
-        return -1.0;
-    }
-
-    while (fgets(buffer, sizeof(buffer), fp) != NULL)
-    {
-        if (sscanf(buffer, " 8 0 %*s %*s %llu %*s %*s %llu", &read_sectors, &write_sectors) == 2)
-        {
-            break;
-        }
-    }
-
-    fclose(fp);
-
-    double disk_usage_percent = ((double)(read_sectors + write_sectors) / (read_sectors + write_sectors + 1000000)) * 100.0;
-    return disk_usage_percent;
-}
-
-double get_active_processes()
-{
-    FILE *fp;
-    char buffer[BUFFER_SIZE];
-    double active_processes;
-
-    fp = fopen("/proc/loadavg", "r");
-    if (fp == NULL)
-    {
-        perror("Error al abrir /proc/loadavg");
-        return -1.0;
-    }
-
-    if (fgets(buffer, sizeof(buffer), fp) != NULL)
-    {
-        sscanf(buffer, "%*s %*s %*s %*s %lf", &active_processes);
-    }
-
-    fclose(fp);
-    return active_processes;
-}
-
-
-double get_network_traffic() {
-    FILE *fp;
-    char buffer[BUFFER_SIZE];
-    unsigned long long received = 0, transmitted = 0;
-
-    fp = fopen("/proc/net/dev", "r");
-    if (fp == NULL) {
-        perror("Error al abrir /proc/net/dev");
-        return -1.0;
-    }
-
-    // Saltar las dos primeras líneas que no contienen datos útiles
-    fgets(buffer, sizeof(buffer), fp);
-    fgets(buffer, sizeof(buffer), fp);
-
-    // Leer el tráfico de red
-    while (fgets(buffer, sizeof(buffer), fp) != NULL) {
-        char interface[16]; // Para almacenar el nombre de la interfaz
-        sscanf(buffer, "%15s %llu %*u %*u %*u %*u %*u %*u %llu", interface, &received, &transmitted);
-        // Puedes acumular los valores de tráfico aquí si es necesario
-    }
-
-    fclose(fp);
-    // Devuelve el tráfico total en bytes (puedes modificarlo según tus necesidades)
-    return received + transmitted;
-}
-
-double get_context_switches() {
-    FILE *fp;
-    char buffer[BUFFER_SIZE];
-    unsigned long long context_switches = 0;
-
-    fp = fopen("/proc/stat", "r");
-    if (fp == NULL) {
-        perror("Error al abrir /proc/stat");
-        return -1.0;
-    }
-
-    // Leer el archivo y buscar el valor de cambios de contexto
-    while (fgets(buffer, sizeof(buffer), fp) != NULL) {
-        if (sscanf(buffer, "ctxt %llu", &context_switches) == 1) {
-            break; // Cambios de contexto encontrados
-        }
-    }
-
-    fclose(fp);
-    return context_switches;
 }
