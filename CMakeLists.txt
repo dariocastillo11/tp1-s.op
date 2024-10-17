@@ -20,7 +20,7 @@ link_directories(${CMAKE_BINARY_DIR}../lib/prometheus-client-c/promhttp)
 file(GLOB SRC_FILES src/*.c)
 
 # Add the main executable
-add_executable(main_executable ${SRC_FILES})
+add_executable(main_executable src/main.c src/expose_metrics.c src/metrics.c ${SRC_FILES})
 
 # Link the libraries
 target_link_libraries(main_executable prom promhttp)
