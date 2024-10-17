@@ -24,3 +24,4 @@ add_executable(main_executable src/main.c src/expose_metrics.c src/metrics.c ${S
 
 # Link the libraries
 target_link_libraries(main_executable prom promhttp)
+
