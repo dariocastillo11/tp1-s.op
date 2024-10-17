@@ -8,16 +8,24 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v4
-    - name: configure
-      run: ./configure
-    - name: make
-      run: make
-    - name: make check
-      run: make check
-    - name: make distcheck
-      run: make distcheck
+
+    - name: Install CMake
+      run: sudo apt-get install -y cmake # Instala CMake
+
+    - name: Configure
+      run: cmake -S . -B build # Configura el proyecto
+
+    - name: Build
+      run: cmake --build build # Compila el proyecto
+
+    # Si tienes pruebas y quieres ejecutarlas, puedes incluir este paso
+    - name: Run Tests
+      run: cd build && make check # Reemplaza esto si no tienes un target de 'check'
+
+    # Opcional: puedes agregar una etapa de distribución si es relevante
+    - name: Distcheck (si es necesario)
+      run: cd build && make distcheck # Reemplaza esto si no es necesario
