@@ -4,17 +4,9 @@ description: "Executes a compilation."
 runs:
   using: "composite"
   steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
+      - name: Compile
+        shell: bash
+        run: |
+          SRC_FOLDER=$(pwd)/src
 
-    - name: Clean up previous build
-      run: rm -rf build || true  # Elimina el directorio de construcción si existe
-
-    - name: Create build directory
-      run: mkdir build  # Crea un nuevo directorio de construcción
-
-    - name: Configure CMake
-      run: cmake -S . -B build  # Configura el proyecto en el directorio build
-
-    - name: Build the project
-      run: cmake --build build  # Compila el proyecto
+        
