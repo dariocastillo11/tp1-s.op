@@ -16,7 +16,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <unistd.h> // Para sleep
+#include <unistd.h> 
 
 /**
  * @brief tamaño del buffer para uso de datos
