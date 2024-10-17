@@ -1,27 +1,22 @@
 cmake_minimum_required(VERSION 3.10)
 
-# Project name
+# Nombre del proyecto
 project(PrometheusClientC)
 
-# Add subdirectoriesclea
+# Añadir subdirectorios
 add_subdirectory(../lib/prometheus-client-c/prom ${CMAKE_BINARY_DIR}/prom)
 add_subdirectory(../lib/prometheus-client-c/promhttp ${CMAKE_BINARY_DIR}/promhttp)
 
-# Include directories
+# Incluir directorios
 include_directories(include) 
-include_directories(../lib/prometheus-client-c/prom/include)
-include_directories(../lib/prometheus-client-c/promhttp/include)
+include_directories(${CMAKE_SOURCE_DIR}/../lib/prometheus-client-c/prom/include)
+include_directories(${CMAKE_SOURCE_DIR}/../lib/prometheus-client-c/promhttp/include)
 
-# Link directories
-link_directories(${CMAKE_BINARY_DIR}../lib/prometheus-client-c/prom)
-link_directories(${CMAKE_BINARY_DIR}../lib/prometheus-client-c/promhttp)
-
-# Collect all .c files in src
+# Archivos fuente
 file(GLOB SRC_FILES src/*.c)
 
-# Add the main executable
+# Crear el ejecutable
 add_executable(main_executable src/main.c src/expose_metrics.c src/metrics.c ${SRC_FILES})
 
-# Link the libraries
-target_link_libraries(main_executable prom promhttp)
-
+# Vincular las bibliotecas
+target_link_libraries(main_executable -pthread prom promhttp microhttpd)
