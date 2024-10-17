@@ -113,8 +113,8 @@ promhttp/clean: promhttp/CMakeFiles/promhttp.dir/clean
 # Target rules for target CMakeFiles/main_executable.dir
 
 # All Build rule for target.
-CMakeFiles/main_executable.dir/all: promhttp/CMakeFiles/promhttp.dir/all
 CMakeFiles/main_executable.dir/all: prom/CMakeFiles/prom.dir/all
+CMakeFiles/main_executable.dir/all: promhttp/CMakeFiles/promhttp.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main_executable.dir/build.make CMakeFiles/main_executable.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main_executable.dir/build.make CMakeFiles/main_executable.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/home/dario/Escritorio/version 8/so-i-24-dariocastillo11/build/CMakeFiles" --progress-num=1,2,3,4 "Built target main_executable"

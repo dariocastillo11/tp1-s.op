@@ -69,24 +69,10 @@ include CMakeFiles/main_executable.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/main_executable.dir/flags.make
 
-CMakeFiles/main_executable.dir/src/expose_metrics.c.o: CMakeFiles/main_executable.dir/flags.make
-CMakeFiles/main_executable.dir/src/expose_metrics.c.o: ../src/expose_metrics.c
-CMakeFiles/main_executable.dir/src/expose_metrics.c.o: CMakeFiles/main_executable.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/dario/Escritorio/version 8/so-i-24-dariocastillo11/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/main_executable.dir/src/expose_metrics.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/main_executable.dir/src/expose_metrics.c.o -MF CMakeFiles/main_executable.dir/src/expose_metrics.c.o.d -o CMakeFiles/main_executable.dir/src/expose_metrics.c.o -c "/home/dario/Escritorio/version 8/so-i-24-dariocastillo11/src/expose_metrics.c"
-
-CMakeFiles/main_executable.dir/src/expose_metrics.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/main_executable.dir/src/expose_metrics.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "/home/dario/Escritorio/version 8/so-i-24-dariocastillo11/src/expose_metrics.c" > CMakeFiles/main_executable.dir/src/expose_metrics.c.i
-
-CMakeFiles/main_executable.dir/src/expose_metrics.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/main_executable.dir/src/expose_metrics.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "/home/dario/Escritorio/version 8/so-i-24-dariocastillo11/src/expose_metrics.c" -o CMakeFiles/main_executable.dir/src/expose_metrics.c.s
-
 CMakeFiles/main_executable.dir/src/main.c.o: CMakeFiles/main_executable.dir/flags.make
 CMakeFiles/main_executable.dir/src/main.c.o: ../src/main.c
 CMakeFiles/main_executable.dir/src/main.c.o: CMakeFiles/main_executable.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/dario/Escritorio/version 8/so-i-24-dariocastillo11/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/main_executable.dir/src/main.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/dario/Escritorio/version 8/so-i-24-dariocastillo11/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/main_executable.dir/src/main.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/main_executable.dir/src/main.c.o -MF CMakeFiles/main_executable.dir/src/main.c.o.d -o CMakeFiles/main_executable.dir/src/main.c.o -c "/home/dario/Escritorio/version 8/so-i-24-dariocastillo11/src/main.c"
 
 CMakeFiles/main_executable.dir/src/main.c.i: cmake_force
@@ -96,6 +82,20 @@ CMakeFiles/main_executable.dir/src/main.c.i: cmake_force
 CMakeFiles/main_executable.dir/src/main.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/main_executable.dir/src/main.c.s"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "/home/dario/Escritorio/version 8/so-i-24-dariocastillo11/src/main.c" -o CMakeFiles/main_executable.dir/src/main.c.s
+
+CMakeFiles/main_executable.dir/src/expose_metrics.c.o: CMakeFiles/main_executable.dir/flags.make
+CMakeFiles/main_executable.dir/src/expose_metrics.c.o: ../src/expose_metrics.c
+CMakeFiles/main_executable.dir/src/expose_metrics.c.o: CMakeFiles/main_executable.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/dario/Escritorio/version 8/so-i-24-dariocastillo11/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/main_executable.dir/src/expose_metrics.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/main_executable.dir/src/expose_metrics.c.o -MF CMakeFiles/main_executable.dir/src/expose_metrics.c.o.d -o CMakeFiles/main_executable.dir/src/expose_metrics.c.o -c "/home/dario/Escritorio/version 8/so-i-24-dariocastillo11/src/expose_metrics.c"
+
+CMakeFiles/main_executable.dir/src/expose_metrics.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/main_executable.dir/src/expose_metrics.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "/home/dario/Escritorio/version 8/so-i-24-dariocastillo11/src/expose_metrics.c" > CMakeFiles/main_executable.dir/src/expose_metrics.c.i
+
+CMakeFiles/main_executable.dir/src/expose_metrics.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/main_executable.dir/src/expose_metrics.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "/home/dario/Escritorio/version 8/so-i-24-dariocastillo11/src/expose_metrics.c" -o CMakeFiles/main_executable.dir/src/expose_metrics.c.s
 
 CMakeFiles/main_executable.dir/src/metrics.c.o: CMakeFiles/main_executable.dir/flags.make
 CMakeFiles/main_executable.dir/src/metrics.c.o: ../src/metrics.c
@@ -113,15 +113,15 @@ CMakeFiles/main_executable.dir/src/metrics.c.s: cmake_force
 
 # Object files for target main_executable
 main_executable_OBJECTS = \
-"CMakeFiles/main_executable.dir/src/expose_metrics.c.o" \
 "CMakeFiles/main_executable.dir/src/main.c.o" \
+"CMakeFiles/main_executable.dir/src/expose_metrics.c.o" \
 "CMakeFiles/main_executable.dir/src/metrics.c.o"
 
 # External object files for target main_executable
 main_executable_EXTERNAL_OBJECTS =
 
-main_executable: CMakeFiles/main_executable.dir/src/expose_metrics.c.o
 main_executable: CMakeFiles/main_executable.dir/src/main.c.o
+main_executable: CMakeFiles/main_executable.dir/src/expose_metrics.c.o
 main_executable: CMakeFiles/main_executable.dir/src/metrics.c.o
 main_executable: CMakeFiles/main_executable.dir/build.make
 main_executable: promhttp/libpromhttp.so
