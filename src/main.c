@@ -2,16 +2,21 @@
  * @file main.c
  * @brief Entry point of the system
  */
-#include "/home/dario/Escritorio/tp jueves/so-i-24-dariocastillo11/include/expose_metrics.h"
-// #include "expose_metrics.h"
+#include "/home/dario/Escritorio/version 8/so-i-24-dariocastillo11/include/expose_metrics.h"
 #include <stdbool.h>
 
+/**
+ * @brief tiempo de espera a ejecutar
+ *
+ */
 #define SLEEP_TIME 1
 
+/**
+ * @brief programa principal
+ *
+ */
 int main()
 {
-
-    // init_metrics();
 
     if (init_metrics() != EXIT_SUCCESS)
     {
@@ -31,7 +36,6 @@ int main()
     // Bucle principal para actualizar las métricas cada segundo
     while (true)
     {
-        // fprintf(stderr, "entro al while\n");
         update_cpu_gauge();
         update_memory_gauge();
         update_disk_gauge();             // Nueva métrica de disco
@@ -39,7 +43,6 @@ int main()
         update_network_traffic_gauge();
         update_context_switches_gauge();
 
-        
         sleep(SLEEP_TIME);
     }
     fprintf(stderr, "  FIN\n");

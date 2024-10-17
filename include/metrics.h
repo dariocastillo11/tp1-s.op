@@ -8,6 +8,10 @@
 #include <string.h>
 #include <unistd.h>
 
+/**
+ * @brief decine el tamaño de buffer
+ *
+ */
 #define BUFFER_SIZE 256
 
 /**
@@ -29,8 +33,15 @@ double get_memory_usage();
  * @return Uso de CPU como porcentaje (0.0 a 100.0), o -1.0 en caso de error.
  */
 double get_cpu_usage();
-
+/**
+ * @brief actividad de procesos
+ *
+ */
 double get_disk_usage();
+/**
+ * @brief Obtiene el porcentaje de uso de memoria desde /proc/meminfo.
+ *
+ */
 double get_active_processes();
 
 /**

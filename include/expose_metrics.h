@@ -3,9 +3,12 @@
  * @brief Programa para leer el uso de CPU y memoria y exponerlos como métricas de Prometheus.
  */
 #ifndef EXPOSE_METRICS_H
+/**
+ * @brief EXPOSE_METRICS
+ *
+ */
 #define EXPOSE_METRICS_
 #include "metrics.h"
-//#include "read_cpu_usage.h"
 #include <errno.h>
 #include <prom.h>
 #include <promhttp.h>
@@ -15,6 +18,9 @@
 #include <string.h>
 #include <unistd.h> // Para sleep
 
+/**
+ * @brief tamaño del buffer para uso de datos
+ */
 #define BUFFER_SIZE 256
 
 /**
@@ -44,14 +50,24 @@ int init_metrics();
  */
 void destroy_mutex();
 
-void update_disk_gauge(); // Añadir declaración de la métrica de disco
+/**
+ * @brief declaracion de las metricas disco
+ */
+void update_disk_gauge();
 
 /**
  * @brief Actualiza la métrica de procesos activos.
  */
 void update_active_processes_gauge(); // Añadir declaración de la métrica de procesos activos
 
-void update_network_traffic_gauge();      // Asegúrate de tener esta declaración
-void update_context_switches_gauge();      // Y esta también
+/**
+ * @brief declara trafico de red
+ */
+void update_network_traffic_gauge(); // Asegúrate de tener esta declaración
+
+/**
+ * @brief declara cambios de contexto
+ */
+void update_context_switches_gauge(); // Y esta también
 
 #endif // EXPOSE_METRICS_H

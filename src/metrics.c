@@ -112,10 +112,9 @@ double get_cpu_usage()
     return cpu_usage_percent;
 }
 
-
 double get_disk_usage()
 {
-    FILE *fp;
+    FILE* fp;
     char buffer[BUFFER_SIZE];
     unsigned long long read_sectors = 0, write_sectors = 0;
 
@@ -136,13 +135,14 @@ double get_disk_usage()
 
     fclose(fp);
 
-    double disk_usage_percent = ((double)(read_sectors + write_sectors) / (read_sectors + write_sectors + 1000000)) * 100.0;
+    double disk_usage_percent =
+        ((double)(read_sectors + write_sectors) / (read_sectors + write_sectors + 1000000)) * 100.0;
     return disk_usage_percent;
 }
 
 double get_active_processes()
 {
-    FILE *fp;
+    FILE* fp;
     char buffer[BUFFER_SIZE];
     double active_processes;
 
@@ -162,14 +162,15 @@ double get_active_processes()
     return active_processes;
 }
 
-
-double get_network_traffic() {
-    FILE *fp;
+double get_network_traffic()
+{
+    FILE* fp;
     char buffer[BUFFER_SIZE];
     unsigned long long received = 0, transmitted = 0;
 
     fp = fopen("/proc/net/dev", "r");
-    if (fp == NULL) {
+    if (fp == NULL)
+    {
         perror("Error al abrir /proc/net/dev");
         return -1.0;
     }
@@ -179,7 +180,8 @@ double get_network_traffic() {
     fgets(buffer, sizeof(buffer), fp);
 
     // Leer el tráfico de red
-    while (fgets(buffer, sizeof(buffer), fp) != NULL) {
+    while (fgets(buffer, sizeof(buffer), fp) != NULL)
+    {
         char interface[16]; // Para almacenar el nombre de la interfaz
         sscanf(buffer, "%15s %llu %*u %*u %*u %*u %*u %*u %llu", interface, &received, &transmitted);
         // Puedes acumular los valores de tráfico aquí si es necesario
@@ -190,20 +192,24 @@ double get_network_traffic() {
     return received + transmitted;
 }
 
-double get_context_switches() {
-    FILE *fp;
+double get_context_switches()
+{
+    FILE* fp;
     char buffer[BUFFER_SIZE];
     unsigned long long context_switches = 0;
 
     fp = fopen("/proc/stat", "r");
-    if (fp == NULL) {
+    if (fp == NULL)
+    {
         perror("Error al abrir /proc/stat");
         return -1.0;
     }
 
     // Leer el archivo y buscar el valor de cambios de contexto
-    while (fgets(buffer, sizeof(buffer), fp) != NULL) {
-        if (sscanf(buffer, "ctxt %llu", &context_switches) == 1) {
+    while (fgets(buffer, sizeof(buffer), fp) != NULL)
+    {
+        if (sscanf(buffer, "ctxt %llu", &context_switches) == 1)
+        {
             break; // Cambios de contexto encontrados
         }
     }
