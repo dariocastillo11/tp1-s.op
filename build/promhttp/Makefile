@@ -68,7 +68,7 @@ CMAKE_BINARY_DIR = "/home/dario/Escritorio/version 8/so-i-24-dariocastillo11/bui
 # Special rule for the target package
 package: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Run CPack packaging tool..."
-	/usr/bin/cpack --config ./CPackConfig.cmake
+	cd "/home/dario/Escritorio/version 8/so-i-24-dariocastillo11/build" && /usr/bin/cpack --config ./CPackConfig.cmake
 .PHONY : package
 
 # Special rule for the target package
@@ -78,7 +78,7 @@ package/fast: package
 # Special rule for the target package_source
 package_source:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Run CPack packaging tool for source..."
-	/usr/bin/cpack --config ./CPackSourceConfig.cmake /home/dario/Escritorio/version\ 8/so-i-24-dariocastillo11/build/CPackSourceConfig.cmake
+	cd "/home/dario/Escritorio/version 8/so-i-24-dariocastillo11/build" && /usr/bin/cpack --config ./CPackSourceConfig.cmake /home/dario/Escritorio/version\ 8/so-i-24-dariocastillo11/build/CPackSourceConfig.cmake
 .PHONY : package_source
 
 # Special rule for the target package_source
@@ -152,14 +152,14 @@ install/strip/fast: preinstall/fast
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/home/dario/Escritorio/version 8/so-i-24-dariocastillo11/build/CMakeFiles" "/home/dario/Escritorio/version 8/so-i-24-dariocastillo11/build//CMakeFiles/progress.marks"
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
+	cd "/home/dario/Escritorio/version 8/so-i-24-dariocastillo11/build" && $(CMAKE_COMMAND) -E cmake_progress_start "/home/dario/Escritorio/version 8/so-i-24-dariocastillo11/build/CMakeFiles" "/home/dario/Escritorio/version 8/so-i-24-dariocastillo11/build/promhttp//CMakeFiles/progress.marks"
+	cd "/home/dario/Escritorio/version 8/so-i-24-dariocastillo11/build" && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 promhttp/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/home/dario/Escritorio/version 8/so-i-24-dariocastillo11/build/CMakeFiles" 0
 .PHONY : all
 
 # The main clean target
 clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 clean
+	cd "/home/dario/Escritorio/version 8/so-i-24-dariocastillo11/build" && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 promhttp/clean
 .PHONY : clean
 
 # The main clean target
@@ -168,129 +168,56 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 preinstall
+	cd "/home/dario/Escritorio/version 8/so-i-24-dariocastillo11/build" && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 promhttp/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 preinstall
+	cd "/home/dario/Escritorio/version 8/so-i-24-dariocastillo11/build" && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 promhttp/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd "/home/dario/Escritorio/version 8/so-i-24-dariocastillo11/build" && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
-#=============================================================================
-# Target rules for targets named main_executable
+# Convenience name for target.
+promhttp/CMakeFiles/promhttp.dir/rule:
+	cd "/home/dario/Escritorio/version 8/so-i-24-dariocastillo11/build" && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 promhttp/CMakeFiles/promhttp.dir/rule
+.PHONY : promhttp/CMakeFiles/promhttp.dir/rule
 
-# Build rule for target.
-main_executable: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 main_executable
-.PHONY : main_executable
-
-# fast build rule for target.
-main_executable/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main_executable.dir/build.make CMakeFiles/main_executable.dir/build
-.PHONY : main_executable/fast
-
-#=============================================================================
-# Target rules for targets named prom
-
-# Build rule for target.
-prom: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 prom
-.PHONY : prom
-
-# fast build rule for target.
-prom/fast:
-	$(MAKE) $(MAKESILENT) -f prom/CMakeFiles/prom.dir/build.make prom/CMakeFiles/prom.dir/build
-.PHONY : prom/fast
-
-#=============================================================================
-# Target rules for targets named promhttp
-
-# Build rule for target.
-promhttp: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 promhttp
+# Convenience name for target.
+promhttp: promhttp/CMakeFiles/promhttp.dir/rule
 .PHONY : promhttp
 
 # fast build rule for target.
 promhttp/fast:
-	$(MAKE) $(MAKESILENT) -f promhttp/CMakeFiles/promhttp.dir/build.make promhttp/CMakeFiles/promhttp.dir/build
+	cd "/home/dario/Escritorio/version 8/so-i-24-dariocastillo11/build" && $(MAKE) $(MAKESILENT) -f promhttp/CMakeFiles/promhttp.dir/build.make promhttp/CMakeFiles/promhttp.dir/build
 .PHONY : promhttp/fast
 
-src/expose_metrics.o: src/expose_metrics.c.o
-.PHONY : src/expose_metrics.o
+src/promhttp.o: src/promhttp.c.o
+.PHONY : src/promhttp.o
 
 # target to build an object file
-src/expose_metrics.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main_executable.dir/build.make CMakeFiles/main_executable.dir/src/expose_metrics.c.o
-.PHONY : src/expose_metrics.c.o
+src/promhttp.c.o:
+	cd "/home/dario/Escritorio/version 8/so-i-24-dariocastillo11/build" && $(MAKE) $(MAKESILENT) -f promhttp/CMakeFiles/promhttp.dir/build.make promhttp/CMakeFiles/promhttp.dir/src/promhttp.c.o
+.PHONY : src/promhttp.c.o
 
-src/expose_metrics.i: src/expose_metrics.c.i
-.PHONY : src/expose_metrics.i
-
-# target to preprocess a source file
-src/expose_metrics.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main_executable.dir/build.make CMakeFiles/main_executable.dir/src/expose_metrics.c.i
-.PHONY : src/expose_metrics.c.i
-
-src/expose_metrics.s: src/expose_metrics.c.s
-.PHONY : src/expose_metrics.s
-
-# target to generate assembly for a file
-src/expose_metrics.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main_executable.dir/build.make CMakeFiles/main_executable.dir/src/expose_metrics.c.s
-.PHONY : src/expose_metrics.c.s
-
-src/main.o: src/main.c.o
-.PHONY : src/main.o
-
-# target to build an object file
-src/main.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main_executable.dir/build.make CMakeFiles/main_executable.dir/src/main.c.o
-.PHONY : src/main.c.o
-
-src/main.i: src/main.c.i
-.PHONY : src/main.i
+src/promhttp.i: src/promhttp.c.i
+.PHONY : src/promhttp.i
 
 # target to preprocess a source file
-src/main.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main_executable.dir/build.make CMakeFiles/main_executable.dir/src/main.c.i
-.PHONY : src/main.c.i
+src/promhttp.c.i:
+	cd "/home/dario/Escritorio/version 8/so-i-24-dariocastillo11/build" && $(MAKE) $(MAKESILENT) -f promhttp/CMakeFiles/promhttp.dir/build.make promhttp/CMakeFiles/promhttp.dir/src/promhttp.c.i
+.PHONY : src/promhttp.c.i
 
-src/main.s: src/main.c.s
-.PHONY : src/main.s
-
-# target to generate assembly for a file
-src/main.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main_executable.dir/build.make CMakeFiles/main_executable.dir/src/main.c.s
-.PHONY : src/main.c.s
-
-src/metrics.o: src/metrics.c.o
-.PHONY : src/metrics.o
-
-# target to build an object file
-src/metrics.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main_executable.dir/build.make CMakeFiles/main_executable.dir/src/metrics.c.o
-.PHONY : src/metrics.c.o
-
-src/metrics.i: src/metrics.c.i
-.PHONY : src/metrics.i
-
-# target to preprocess a source file
-src/metrics.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main_executable.dir/build.make CMakeFiles/main_executable.dir/src/metrics.c.i
-.PHONY : src/metrics.c.i
-
-src/metrics.s: src/metrics.c.s
-.PHONY : src/metrics.s
+src/promhttp.s: src/promhttp.c.s
+.PHONY : src/promhttp.s
 
 # target to generate assembly for a file
-src/metrics.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main_executable.dir/build.make CMakeFiles/main_executable.dir/src/metrics.c.s
-.PHONY : src/metrics.c.s
+src/promhttp.c.s:
+	cd "/home/dario/Escritorio/version 8/so-i-24-dariocastillo11/build" && $(MAKE) $(MAKESILENT) -f promhttp/CMakeFiles/promhttp.dir/build.make promhttp/CMakeFiles/promhttp.dir/src/promhttp.c.s
+.PHONY : src/promhttp.c.s
 
 # Help Target
 help:
@@ -306,18 +233,10 @@ help:
 	@echo "... package"
 	@echo "... package_source"
 	@echo "... rebuild_cache"
-	@echo "... main_executable"
-	@echo "... prom"
 	@echo "... promhttp"
-	@echo "... src/expose_metrics.o"
-	@echo "... src/expose_metrics.i"
-	@echo "... src/expose_metrics.s"
-	@echo "... src/main.o"
-	@echo "... src/main.i"
-	@echo "... src/main.s"
-	@echo "... src/metrics.o"
-	@echo "... src/metrics.i"
-	@echo "... src/metrics.s"
+	@echo "... src/promhttp.o"
+	@echo "... src/promhttp.i"
+	@echo "... src/promhttp.s"
 .PHONY : help
 
 
@@ -329,6 +248,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd "/home/dario/Escritorio/version 8/so-i-24-dariocastillo11/build" && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 
