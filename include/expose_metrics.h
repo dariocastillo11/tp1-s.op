@@ -7,7 +7,7 @@
  * @brief EXPOSE_METRICS
  *
  */
-#define EXPOSE_METRICS_
+#define EXPOSE_METRICS_H
 #include "metrics.h"
 #include <errno.h>
 #include <prom.h>
