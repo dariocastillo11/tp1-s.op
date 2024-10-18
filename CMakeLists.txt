@@ -11,9 +11,6 @@ project(
 #Set the C version
 set(CMAKE_C_STANDARD 11)
 
-# Añadir subdirectorios
-add_subdirectory(../lib/prometheus-client-c/prom/ ${CMAKE_BINARY_DIR}/prom)
-add_subdirectory(../lib/prometheus-client-c/promhttp/ ${CMAKE_BINARY_DIR}/promhttp)
 
 
 # Incluir directorios
