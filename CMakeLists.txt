@@ -13,7 +13,7 @@ set(CMAKE_C_STANDARD 11)
 
 # Incluir directorios
 include_directories(include) 
-include_directories(${CMAKE_SOURCE_DIR}/home/dario/Escritorio/version 8/lib/prometheus-client-c/prom/include)
+include_directories(${CMAKE_SOURCE_DIR}lib/prometheus-client-c/prom/include)
 include_directories(${CMAKE_SOURCE_DIR}/../lib/prometheus-client-c/promhttp/include)
 
 
