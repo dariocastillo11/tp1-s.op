@@ -31,5 +31,3 @@
 # cache
 .cache/
 
-# lib
-..lib/

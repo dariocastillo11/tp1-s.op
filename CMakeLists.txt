@@ -1,7 +1,15 @@
-cmake_minimum_required(VERSION 3.10)
+cmake_minimum_required(VERSION 3.22)
 
 # Nombre del proyecto
-project(PrometheusClientC)
+project(
+    PrometheusClientC
+    VERSION 1.0.0
+    DESCRIPTION "TP1"
+    LANGUAGES C
+    )
+
+#Set the C version
+set(CMAKE_C_STANDARD 11)
 
 # Añadir subdirectorios
 add_subdirectory(../lib/prometheus-client-c/prom ${CMAKE_BINARY_DIR}/prom)
