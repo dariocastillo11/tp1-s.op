@@ -124,8 +124,6 @@ main_executable: CMakeFiles/main_executable.dir/src/main.c.o
 main_executable: CMakeFiles/main_executable.dir/src/expose_metrics.c.o
 main_executable: CMakeFiles/main_executable.dir/src/metrics.c.o
 main_executable: CMakeFiles/main_executable.dir/build.make
-main_executable: promhttp/libpromhttp.so
-main_executable: prom/libprom.so
 main_executable: CMakeFiles/main_executable.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/home/dario/Escritorio/version 8/so-i-24-dariocastillo11/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Linking C executable main_executable"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/main_executable.dir/link.txt --verbose=$(VERBOSE)

@@ -7,8 +7,6 @@ set(CMAKE_DEPENDS_GENERATOR "Unix Makefiles")
 # The top level Makefile was generated from the following files:
 set(CMAKE_MAKEFILE_DEPENDS
   "CMakeCache.txt"
-  "/home/dario/Escritorio/version 8/lib/prometheus-client-c/prom/CMakeLists.txt"
-  "/home/dario/Escritorio/version 8/lib/prometheus-client-c/promhttp/CMakeLists.txt"
   "../CMakeLists.txt"
   "CMakeFiles/3.22.1/CMakeCCompiler.cmake"
   "CMakeFiles/3.22.1/CMakeSystem.cmake"
@@ -36,12 +34,6 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/usr/share/cmake-3.22/Modules/CMakeTestCCompiler.cmake"
   "/usr/share/cmake-3.22/Modules/CMakeTestCompilerCommon.cmake"
   "/usr/share/cmake-3.22/Modules/CMakeUnixFindMake.cmake"
-  "/usr/share/cmake-3.22/Modules/CPack.cmake"
-  "/usr/share/cmake-3.22/Modules/CPackComponent.cmake"
-  "/usr/share/cmake-3.22/Modules/CheckCSourceCompiles.cmake"
-  "/usr/share/cmake-3.22/Modules/CheckIncludeFile.c.in"
-  "/usr/share/cmake-3.22/Modules/CheckIncludeFile.cmake"
-  "/usr/share/cmake-3.22/Modules/CheckLibraryExists.cmake"
   "/usr/share/cmake-3.22/Modules/Compiler/ADSP-DetermineCompiler.cmake"
   "/usr/share/cmake-3.22/Modules/Compiler/ARMCC-DetermineCompiler.cmake"
   "/usr/share/cmake-3.22/Modules/Compiler/ARMClang-DetermineCompiler.cmake"
@@ -82,17 +74,11 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/usr/share/cmake-3.22/Modules/Compiler/XL-C-DetermineCompiler.cmake"
   "/usr/share/cmake-3.22/Modules/Compiler/XLClang-C-DetermineCompiler.cmake"
   "/usr/share/cmake-3.22/Modules/Compiler/zOS-C-DetermineCompiler.cmake"
-  "/usr/share/cmake-3.22/Modules/FindPackageHandleStandardArgs.cmake"
-  "/usr/share/cmake-3.22/Modules/FindPackageMessage.cmake"
-  "/usr/share/cmake-3.22/Modules/FindThreads.cmake"
-  "/usr/share/cmake-3.22/Modules/GNUInstallDirs.cmake"
-  "/usr/share/cmake-3.22/Modules/Internal/CheckSourceCompiles.cmake"
   "/usr/share/cmake-3.22/Modules/Internal/FeatureTesting.cmake"
   "/usr/share/cmake-3.22/Modules/Platform/Linux-GNU-C.cmake"
   "/usr/share/cmake-3.22/Modules/Platform/Linux-GNU.cmake"
   "/usr/share/cmake-3.22/Modules/Platform/Linux.cmake"
   "/usr/share/cmake-3.22/Modules/Platform/UnixPaths.cmake"
-  "/usr/share/cmake-3.22/Templates/CPackConfig.cmake.in"
   )
 
 # The corresponding makefile is:
@@ -107,17 +93,9 @@ set(CMAKE_MAKEFILE_PRODUCTS
   "CMakeFiles/3.22.1/CMakeCCompiler.cmake"
   "CMakeFiles/3.22.1/CMakeCCompiler.cmake"
   "CMakeFiles/CMakeDirectoryInformation.cmake"
-  "CPackConfig.cmake"
-  "CPackSourceConfig.cmake"
-  "prom/CMakeFiles/CMakeDirectoryInformation.cmake"
-  "CPackConfig.cmake"
-  "CPackSourceConfig.cmake"
-  "promhttp/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/main_executable.dir/DependInfo.cmake"
-  "prom/CMakeFiles/prom.dir/DependInfo.cmake"
-  "promhttp/CMakeFiles/promhttp.dir/DependInfo.cmake"
   )
