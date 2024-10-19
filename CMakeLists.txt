@@ -17,12 +17,6 @@ include_directories(${CMAKE_SOURCE_DIR}/../lib/prometheus-client-c/prom/include)
 include_directories(${CMAKE_SOURCE_DIR}/../lib/prometheus-client-c/promhttp/include)
 
 
-# Link directories
-link_directories(${CMAKE_BINARY_DIR}/../lib/prometheus-client-c/prom)
-link_directories(${CMAKE_BINARY_DIR}/../lib/prometheus-client-c/promhttp)
-
-
-
 # Archivos fuente
 file(GLOB SRC_FILES src/*.c)
 
