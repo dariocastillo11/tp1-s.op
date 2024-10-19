@@ -10,7 +10,7 @@
 #define EXPOSE_METRICS_H
 #include "metrics.h"
 #include <errno.h>
-#include <prom.h>
+//#include <prom.h>
 #include <promhttp.h>
 #include <pthread.h>
 #include <stdio.h>
