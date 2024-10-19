@@ -11,10 +11,11 @@ project(
 #Set the C version
 set(CMAKE_C_STANDARD 11)
 
-# Incluir directorios
-include_directories(${CMAKE_SOURCE_DIR}/include)
-include_directories(${CMAKE_SOURCE_DIR}/../lib/prometheus-client-c/prom/include)
-include_directories(${CMAKE_SOURCE_DIR}/../lib/prometheus-client-c/promhttp/include)
+target_include_directories(main_executable PRIVATE 
+    ${CMAKE_SOURCE_DIR}/include 
+    ${CMAKE_SOURCE_DIR}/../lib/prometheus-client-c/prom/include 
+    ${CMAKE_SOURCE_DIR}/../lib/prometheus-client-c/promhttp/include
+)
 
 
 # Archivos fuente
