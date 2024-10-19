@@ -11,12 +11,14 @@ project(
 #Set the C version
 set(CMAKE_C_STANDARD 11)
 
-target_include_directories(main_executable PRIVATE 
-    ${CMAKE_SOURCE_DIR}/include 
-    ${CMAKE_SOURCE_DIR}/../lib/prometheus-client-c/prom/include 
-    ${CMAKE_SOURCE_DIR}/../lib/prometheus-client-c/promhttp/include
-)
+# Incluir directorios
+include_directories(${CMAKE_SOURCE_DIR}/include)
+include_directories(${CMAKE_SOURCE_DIR}/../lib/prometheus-client-c/prom/include)
+include_directories(${CMAKE_SOURCE_DIR}/../lib/prometheus-client-c/promhttp/include)
 
+# Link directories
+link_directories(${CMAKE_BINARY_DIR}/../lib/prometheus-client-c/prom)
+link_directories(${CMAKE_BINARY_DIR}/../lib/prometheus-client-c/promhttp)
 
 # Archivos fuente
 file(GLOB SRC_FILES src/*.c)
@@ -26,3 +28,8 @@ add_executable(main_executable src/main.c src/expose_metrics.c src/metrics.c ${S
 
 # Vincular las bibliotecas
 target_link_libraries(main_executable -pthread prom promhttp microhttpd)
+target_include_directories(main_executable PRIVATE 
+    ${CMAKE_SOURCE_DIR}/include 
+    ${CMAKE_SOURCE_DIR}/../lib/prometheus-client-c/prom/include 
+    ${CMAKE_SOURCE_DIR}/../lib/prometheus-client-c/promhttp/include
+)
