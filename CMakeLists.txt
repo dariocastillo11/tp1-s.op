@@ -25,15 +25,10 @@ add_executable(main_executable src/main.c src/expose_metrics.c src/metrics.c ${S
 # Vincular las bibliotecas
 target_link_libraries(main_executable -pthread prom promhttp microhttpd)
 
-# Incluir directorios de forma correcta
-target_include_directories(main_executable PRIVATE 
-    ${CMAKE_SOURCE_DIR}/include 
-    ${CMAKE_SOURCE_DIR}/../lib/prometheus-client-c/prom/include 
-    ${CMAKE_SOURCE_DIR}/../lib/prometheus-client-c/promhttp/include
-)
+
 
 # O bien, puedes usar las rutas absolutas directamente (opcional)
-# target_include_directories(main_executable PRIVATE 
-#     /home/dario/Escritorio/version\ 8/lib/prometheus-client-c/prom/include 
-#     /home/dario/Escritorio/version\ 8/lib/prometheus-client-c/promhttp/include
-# )
+ target_include_directories(main_executable PRIVATE 
+     /home/dario/Escritorio/version\ 8/lib/prometheus-client-c/prom/include 
+    /home/dario/Escritorio/version\ 8/lib/prometheus-client-c/promhttp/include
+ )
