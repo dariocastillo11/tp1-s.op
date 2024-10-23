@@ -26,6 +26,3 @@ jobs:
     - name: Run Tests
       run: cd build && make check # Reemplaza esto si no tienes un target de 'check'
 
-    # Opcional: puedes agregar una etapa de distribución si es relevante
-    - name: Distcheck (si es necesario)
-      run: cd build && make distcheck # Reemplaza esto si no es necesario
