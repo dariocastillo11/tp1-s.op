@@ -17,7 +17,5 @@ jobs:
     - name: Set up CMake
       run: sudo apt-get install -y cmake #
       
-    - name: Configure
-      run: cmake -S . -B build 
-      
+    
     

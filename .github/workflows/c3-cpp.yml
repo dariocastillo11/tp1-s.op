@@ -16,9 +16,7 @@ jobs:
     - name: Install CMake
       run: sudo apt-get install -y cmake # Instala CMake
 
-    - name: Configure
-      run: cmake -S . -B build # Configura el proyecto
-
+    
 
     # Si tienes pruebas y quieres ejecutarlas, puedes incluir este paso
     - name: Run Tests
