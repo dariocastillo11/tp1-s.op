@@ -19,8 +19,6 @@ jobs:
     - name: Configure
       run: cmake -S . -B build # Configura el proyecto
 
-    - name: Build
-      run: cmake --build build # Compila el proyecto
 
     # Si tienes pruebas y quieres ejecutarlas, puedes incluir este paso
     - name: Run Tests

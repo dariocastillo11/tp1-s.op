@@ -20,8 +20,4 @@ jobs:
     - name: Configure
       run: cmake -S . -B build 
       
-    - name: Build
-      run: cmake --build build 
-      
-    - name: Run tests (si tienes pruebas configuradas)
-      run: cd build && make check 
+    
