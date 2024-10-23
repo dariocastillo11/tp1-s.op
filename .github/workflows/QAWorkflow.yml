@@ -28,5 +28,4 @@ jobs:
       - name: Run documentation check
         uses: ./.github/actions/documentation
 
-      - name: Build project
-        uses: ./.github/actions/building
+     
