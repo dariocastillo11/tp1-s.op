@@ -82,7 +82,7 @@ void* expose_metrics(void* arg)
     promhttp_set_active_collector_registry(NULL);
 
     // Iniciamos el servidor HTTP en el puerto 8000
-    struct MHD_Daemon* daemon = promhttp_start_daemon(MHD_USE_SELECT_INTERNALLY, 8000, NULL, NULL);
+    struct MHD_Daemon* daemon = promhttp_start_daemon(MHD_USE_SELECT_INTERNALLY, 8080, NULL, NULL);
     if (daemon == NULL)
     {
         fprintf(stderr, "Error al iniciar el servidor HTTP\n");
@@ -90,7 +90,7 @@ void* expose_metrics(void* arg)
     }
     else
     {
-        printf("Servidor HTTP iniciado en puerto 8000\n");
+        printf("Servidor HTTP iniciado en puerto 8080\n");
     }
     // Mantenemos el servidor en ejecución
     while (1)
