@@ -6,9 +6,9 @@ project(
     VERSION 1.0.0
     DESCRIPTION "TP1"
     LANGUAGES C
-    )
+)
 
-#Set the C version
+# Establecer la versión de C
 set(CMAKE_C_STANDARD 11)
 
 # Incluir directorios
@@ -16,18 +16,25 @@ include_directories(${CMAKE_SOURCE_DIR}/include)
 include_directories(${CMAKE_SOURCE_DIR}/../lib/prometheus-client-c/prom/include)
 include_directories(${CMAKE_SOURCE_DIR}/../lib/prometheus-client-c/promhttp/include)
 
-
-# Link directories
-link_directories(${CMAKE_BINARY_DIR}/../lib/prometheus-client-c/prom)
-link_directories(${CMAKE_BINARY_DIR}/../lib/prometheus-client-c/promhttp)
-
-
-
 # Archivos fuente
 file(GLOB SRC_FILES src/*.c)
 
-# Crear el ejecutable
-add_executable(main_executable src/main.c src/expose_metrics.c src/metrics.c ${SRC_FILES})
+# Crear la biblioteca estática (en lugar de un ejecutable)
+add_library(tp1-s-op STATIC 
+    src/main.c
+    src/expose_metrics.c 
+    src/metrics.c 
+    ${SRC_FILES}
+)
 
-# Vincular las bibliotecas
-target_link_libraries(main_executable -pthread prom promhttp microhttpd)
+# Incluir directorios de cabecera
+target_include_directories(tp1-s-op PUBLIC
+    ${CMAKE_SOURCE_DIR}/include               # Incluir el directorio general 'include'
+    ${CMAKE_SOURCE_DIR}/lib/tp1-s.op/include  # Incluir el directorio de cabeceras del submódulo
+    ${CMAKE_SOURCE_DIR}/../lib/prometheus-client-c/prom/include
+    ${CMAKE_SOURCE_DIR}/../lib/prometheus-client-c/promhttp/include
+)
+
+
+# Vincular las bibliotecas necesarias
+target_link_libraries(tp1-s-op PRIVATE pthread prom promhttp microhttpd)
